@@ -1,0 +1,122 @@
+[
+  {
+    "name": "Mango",
+    "average_price": 57.84805410405527,
+    "max_price": 99.76,
+    "min_price": 5.68
+  },
+  {
+    "name": "Banana",
+    "average_price": 60.020066282437455,
+    "max_price": 99.98,
+    "min_price": 5.05
+  },
+  {
+    "name": "Plum",
+    "average_price": 13.213405222325072,
+    "max_price": 99.65,
+    "min_price": 5.5
+  },
+  {
+    "name": "Grapes",
+    "average_price": 68.25808928892478,
+    "max_price": 99.9,
+    "min_price": 5.12
+  },
+  {
+    "name": "Blueberry",
+    "average_price": 24.47195173626586,
+    "max_price": 99.91,
+    "min_price": 5.06
+  },
+  {
+    "name": "Apricot",
+    "average_price": 38.97795786702538,
+    "max_price": 99.94,
+    "min_price": 5.22
+  },
+  {
+    "name": "Boysenberry",
+    "average_price": 48.7724291498091,
+    "max_price": 99.89,
+    "min_price": 5.15
+  },
+  {
+    "name": "Papaya",
+    "average_price": 78.26232934605004,
+    "max_price": 99.99,
+    "min_price": 5.63
+  },
+  {
+    "name": "Pineapple",
+    "average_price": 38.3313250667789,
+    "max_price": 99.91,
+    "min_price": 5.01
+  },
+  {
+    "name": "Blackberry",
+    "average_price": 45.49633264179633,
+    "max_price": 99.87,
+    "min_price": 6.01
+  },
+  {
+    "name": "Cranberry",
+    "average_price": 45.64803439553489,
+    "max_price": 99.91,
+    "min_price": 5.24
+  },
+  {
+    "name": "Strawberry",
+    "average_price": 36.359730660383036,
+    "max_price": 99.84,
+    "min_price": 5.59
+  },
+  {
+    "name": "Raspberry",
+    "average_price": 40.84932391002396,
+    "max_price": 99.57,
+    "min_price": 5.2
+  },
+  {
+    "name": "Apple",
+    "average_price": 58.231398556867376,
+    "max_price": 99.71,
+    "min_price": 5.01
+  },
+  {
+    "name": "Melon",
+    "average_price": 51.56113138282153,
+    "max_price": 99.93,
+    "min_price": 5.05
+  },
+  {
+    "name": "Kiwifruit",
+    "average_price": 52.484888267169524,
+    "max_price": 99.81,
+    "min_price": 5.22
+  },
+  {
+    "name": "Cherry",
+    "average_price": 59.63928310237996,
+    "max_price": 99.24,
+    "min_price": 5.09
+  },
+  {
+    "name": "Peach",
+    "average_price": 56.74857201445677,
+    "max_price": 99.72,
+    "min_price": 5.66
+  },
+  {
+    "name": "Orange",
+    "average_price": 45.24935482681974,
+    "max_price": 99.83,
+    "min_price": 5.19
+  },
+  {
+    "name": "Guava",
+    "average_price": 38.0669046194438,
+    "max_price": 99.89,
+    "min_price": 5.28
+  }
+]
