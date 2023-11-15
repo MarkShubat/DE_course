@@ -1,32 +1,69 @@
-import pickle
+import os
 import json
+import zipfile
+from bs4 import BeautifulSoup
 
-file = open("products_16.pkl", "rb")
-products_data = pickle.load(file)
-file.close()
+data = list()
+price_max = 0
+price_min = 99999999
+price_avg = 0
+price_sum = 0
 
-file = open("price_info_16.json", "r")
-new_prices_data = json.load(file)
-file.close()   
+counter = 0
+freq = {}
 
-price_info_dict = {}
-
-for item in new_prices_data:
-    price_info_dict[item["name"]] = item
-
-for product in products_data:
-    current_price_info = price_info_dict[product["name"]]
+with zipfile.ZipFile("zip_var_16.zip", "r") as file:
+    files = file.namelist()
+    for filename in files:
+        with file.open(filename) as page:
+            soup = BeautifulSoup(page, 'xml')
+            
+            clothings = soup.find_all("clothing")
+            for clothing in clothings:
+                item = {}
+                for elem in clothing.contents:
+                    if elem.name is not None:
+                        try:
+                            item[elem.name] = float(elem.get_text().strip())
+                            if elem.name == "price":
+                                price = float(elem.get_text().strip())
+                                if price >= price_max:
+                                    price_max = price
+                                if price <= price_min:
+                                    price_min = price
+                                price_sum += price
+                                counter += 1
+                        except:
+                            item[elem.name] = elem.get_text().strip()
+                            if elem.name == "category":
+                                freq[elem.get_text().strip()] = freq.get(elem.get_text().strip(), 0) + 1
+                data.append(item)
+            
+with open("t4_result.json", "w") as file:
+    file.write(json.dumps(data, indent=2, ensure_ascii=False))
     
-    method = current_price_info["method"]
-    if method == "sum":
-        product["price"] = round(product["price"] + current_price_info["param"],2)
-    elif method == "sub":
-        product["price"] = round(product["price"] - current_price_info["param"],2)
-    elif method == "percent+":
-        product["price"] = round(product["price"] * (1 + current_price_info["param"]),2)
-    elif method == "percent-":
-        product["price"] = round(product["price"] * (1 - current_price_info["param"]),2)
+sorted_data = sorted(data, key=lambda x: x["price"])
+filtered_data = list(filter(lambda x: x["price"] >= 700000, data))
 
-file = open("t4_result.pkl", "wb")
-pickle.dump(products_data, file)
-file.close()
+with open("t4_result_sorted.json", "w") as file:
+    file.write(json.dumps(sorted_data, indent=2, ensure_ascii=False))
+
+with open("t4_result_filtered.json", "w") as file:
+    file.write(json.dumps(filtered_data, indent=2, ensure_ascii=False))
+
+price_avg = price_sum / counter
+
+with open("t4_stats.json", "w") as file:
+    file.write(json.dumps(
+            {
+                "Sum": price_sum,
+                "min": price_min,
+                "max": price_max,
+                "average": price_avg
+            },
+            indent=2))
+    
+freq_sorted = dict(sorted(freq.items(), key=lambda x: x[1], reverse=True))
+
+with open("t4_freq.json", "w", encoding="utf-8") as file:
+    file.write(json.dumps(freq_sorted, ensure_ascii=False, indent=2))
