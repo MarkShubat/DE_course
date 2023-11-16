@@ -15,7 +15,7 @@ freq = {}
 
 url = "https://xn--80aacd1dd1a.xn--p1ai/cars?page="
 
-for i in range(5):
+for i in range(5): #данные есть на 10+ страницах, но иногда после 5 выдают 404
   html_content = urllib.request.urlopen(url + str(i+1)).read() 
 
   soup = BeautifulSoup(html_content, "html.parser")
@@ -67,7 +67,7 @@ for i in range(5):
 with open("t5_result.json", "w") as file:
     file.write(json.dumps(data, indent=2, ensure_ascii=False))
     
-sorted_data = sorted(data, key=lambda x: x["Price"])
+sorted_data = sorted(data, key=lambda x: x["Year"])
 filtered_data = list(filter(lambda x: x["Price"] >= 1000000, data))
 
 with open("t5_result_sorted.json", "w") as file:

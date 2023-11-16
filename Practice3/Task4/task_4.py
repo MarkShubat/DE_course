@@ -42,7 +42,7 @@ with zipfile.ZipFile("zip_var_16.zip", "r") as file:
 with open("t4_result.json", "w") as file:
     file.write(json.dumps(data, indent=2, ensure_ascii=False))
     
-sorted_data = sorted(data, key=lambda x: x["price"])
+sorted_data = sorted(data, key=lambda x: x["rating"])
 filtered_data = list(filter(lambda x: x["price"] >= 700000, data))
 
 with open("t4_result_sorted.json", "w") as file:
