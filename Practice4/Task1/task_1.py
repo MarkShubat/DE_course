@@ -40,7 +40,7 @@ def insert_data(connection, data):
     connection.commit()
     cursor.close()
 
-def top_views(connection, top=11):
+def top_views(connection, top=26):
     cursor = connection.cursor()
     res = cursor.execute(
         '''
@@ -90,7 +90,7 @@ def compute_freq_system(connection):
     cursor.close()
     return stat_freq
 
-def top_predicate_views(connection, rating = 2300, top=11):
+def top_predicate_views(connection, rating = 2300, top=26):
     cursor = connection.cursor()
     res = cursor.execute(
         '''

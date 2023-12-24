@@ -41,7 +41,7 @@ def insert_data(connection, data):
     connection.commit()
     cursor.close()
 
-def top_views(connection, top=11):
+def top_views(connection, top=26):
     cursor = connection.cursor()
     res = cursor.execute(
         '''
@@ -93,7 +93,7 @@ def compute_freq_genre(connection):
     cursor.close()
     return stat_freq
 
-def top_predicate_views(connection, min_tempo=95, top=16):
+def top_predicate_views(connection, min_tempo=95, top=31):
     cursor = connection.cursor()
     res = cursor.execute(
         '''
@@ -174,6 +174,3 @@ print("Статистика по жанрам: " + str(compute_freq_genre(connec
 data = top_predicate_views(connection)
 with open("t3_res_top_predicate_views.json", "w", encoding='utf-8') as file:
     json.dump(data, file, ensure_ascii=False)
-
-
-
