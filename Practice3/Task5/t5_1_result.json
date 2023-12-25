@@ -1,0 +1,102 @@
+[
+  {
+    "Name": "Mazda 3",
+    "Year": 2013,
+    "Mileage": 120000,
+    "Engine type": "Автомат",
+    "Drive": "Передний",
+    "Fuel": "Бензин",
+    "Volume, L": 1.5,
+    "Power, H.P.": 120.0
+  },
+  {
+    "Name": "Nissan Qashqai",
+    "Year": 2013,
+    "Mileage": 158000,
+    "Engine type": "Механика",
+    "Drive": "Передний",
+    "Fuel": "Бензин",
+    "Volume, L": 1.6,
+    "Power, H.P.": 114.0
+  },
+  {
+    "Name": "Audi Q5",
+    "Year": 2015,
+    "Mileage": 144000,
+    "Engine type": "Автомат",
+    "Drive": "Полный",
+    "Fuel": "Бензин",
+    "Volume, L": 2.0,
+    "Power, H.P.": 225.0
+  },
+  {
+    "Name": "Lada (ВАЗ) 2121 (4x4)",
+    "Year": 2018,
+    "Mileage": 53000,
+    "Engine type": "Механика",
+    "Drive": "Полный",
+    "Fuel": "Бензин",
+    "Volume, L": 1.7,
+    "Power, H.P.": 83.0
+  },
+  {
+    "Name": "Volkswagen Passat",
+    "Year": 2017,
+    "Mileage": 120000,
+    "Engine type": "Робот",
+    "Drive": "Передний",
+    "Fuel": "Бензин",
+    "Volume, L": 1.4,
+    "Power, H.P.": 150.0
+  },
+  {
+    "Name": "Renault Duster",
+    "Year": 2017,
+    "Mileage": 202000,
+    "Engine type": "Механика",
+    "Drive": "Полный",
+    "Fuel": "Бензин",
+    "Volume, L": 2.0,
+    "Power, H.P.": 143.0
+  },
+  {
+    "Name": "Toyota RAV4",
+    "Year": 2015,
+    "Mileage": 151000,
+    "Engine type": "Вариатор",
+    "Drive": "Полный",
+    "Fuel": "Бензин",
+    "Volume, L": 2.0,
+    "Power, H.P.": 146.0
+  },
+  {
+    "Name": "Chery IndiS (S18D)",
+    "Year": 2011,
+    "Mileage": 43928,
+    "Engine type": "Механика",
+    "Drive": "Передний",
+    "Fuel": "Бензин",
+    "Volume, L": 1.3,
+    "Power, H.P.": 83.0
+  },
+  {
+    "Name": "Skoda Octavia",
+    "Year": 2018,
+    "Mileage": 155960,
+    "Engine type": "Робот",
+    "Drive": "Передний",
+    "Fuel": "Бензин",
+    "Volume, L": 1.4,
+    "Power, H.P.": 150.0
+  },
+  {
+    "Name": "Volkswagen Transporter",
+    "Year": 2006,
+    "Mileage": 527300,
+    "Engine type": "Механика",
+    "Drive": "Передний",
+    "Fuel": "Дизель",
+    "Volume, L": 2.5,
+    "Power, H.P.": 131.0
+  }
+]
