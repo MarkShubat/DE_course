@@ -46,16 +46,7 @@ for el in elements:
     #print(e_type)
     e_drive = soup.find_all("span", attrs={"product-parameters__value"})[5].get_text().strip()
     #print(e_drive)
-
-    freq[e_type] = freq.get(e_type, 0) + 1
-    
-    if mileage >= mileage_max:
-      mileage_max = mileage
-    if mileage <= mileage_min:
-      mileage_min = mileage
-    mileage_sum += mileage
-    counter+=1
-        
+       
     car = {
         "Name": name,
         "Year": year,
@@ -69,6 +60,20 @@ for el in elements:
     data.append(car)
     #print(car)       
 
+for elem in data:
+    mileage = elem["Mileage"]
+    if mileage >= mileage_max:
+        mileage_max = mileage
+    if mileage <= mileage_min:
+        mileage_min = mileage
+    mileage_sum += mileage
+    counter+=1
+    
+    e_type = elem["Engine type"]
+    freq[e_type] = freq.get(e_type, 0) + 1
+    
+
+  
 with open("t5_1_result.json", "w") as file:
     file.write(json.dumps(data, indent=2, ensure_ascii=False))
     

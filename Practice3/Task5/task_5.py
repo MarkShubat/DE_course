@@ -15,7 +15,7 @@ freq = {}
 
 url = "https://xn--80aacd1dd1a.xn--p1ai/cars?page="
 
-for i in range(5): #данные есть на 10+ страницах, но иногда после 5 выдают 404
+for i in range(5):
   html_content = urllib.request.urlopen(url + str(i+1)).read() 
 
   soup = BeautifulSoup(html_content, "html.parser")
@@ -34,7 +34,6 @@ for i in range(5): #данные есть на 10+ страницах, но ин
     splitter = "\xa0·\n       \n        "
     
     e_type = item.find_all("div", attrs={"car-card__params"})[1].get_text().split(splitter)[0].strip()
-    freq[e_type] = freq.get(e_type, 0) + 1
     
     e_drive = item.find_all("div", attrs={"car-card__params"})[1].get_text().split(splitter)[1].strip()
     e_fuel = item.find_all("div", attrs={"car-card__params"})[1].get_text().split(splitter)[2].strip()
@@ -42,12 +41,7 @@ for i in range(5): #данные есть на 10+ страницах, но ин
     e_power = item.find_all("div", attrs={"car-card__params"})[1].get_text().split(splitter)[4].strip().replace("\xa0", "").replace("л.с.","").strip()
 
     price = float(item.find_all("div", attrs={"car-card__price-actual"})[0].get_text().replace("₽", "").replace(",","").strip())
-    if price >= price_max:
-      price_max = price
-    if price <= price_min:
-      price_min = price
-    price_sum += price
-    counter+=1
+    
         
     car = {
         "Href": href,
@@ -63,7 +57,18 @@ for i in range(5): #данные есть на 10+ страницах, но ин
         }
     data.append(car)
             
+for elem in data:
+    price = data["Price"]
+    if price >= price_max:
+      price_max = price
+    if price <= price_min:
+      price_min = price
+    price_sum += price
+    counter+=1
 
+    e_type = elem["Engine type"]
+    freq[e_type] = freq.get(e_type, 0) + 1    
+    
 with open("t5_result.json", "w") as file:
     file.write(json.dumps(data, indent=2, ensure_ascii=False))
     
