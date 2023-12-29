@@ -39,21 +39,21 @@ with zipfile.ZipFile("zip_var_16.zip", "r") as file:
                                 freq[elem.get_text().strip()] = freq.get(elem.get_text().strip(), 0) + 1
                 data.append(item)
             
-with open("t4_result.json", "w") as file:
+with open("t4_result.json", "w", encoding="utf-8") as file:
     file.write(json.dumps(data, indent=2, ensure_ascii=False))
     
 sorted_data = sorted(data, key=lambda x: x["rating"])
 filtered_data = list(filter(lambda x: x["price"] >= 700000, data))
 
-with open("t4_result_sorted.json", "w") as file:
+with open("t4_result_sorted.json", "w", encoding="utf-8") as file:
     file.write(json.dumps(sorted_data, indent=2, ensure_ascii=False))
 
-with open("t4_result_filtered.json", "w") as file:
+with open("t4_result_filtered.json", "w", encoding="utf-8") as file:
     file.write(json.dumps(filtered_data, indent=2, ensure_ascii=False))
 
 price_avg = price_sum / counter
 
-with open("t4_stats.json", "w") as file:
+with open("t4_stats.json", "w", encoding="utf-8") as file:
     file.write(json.dumps(
             {
                 "Sum": price_sum,
