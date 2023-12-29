@@ -90,21 +90,21 @@ with zipfile.ZipFile("zip_var_16.zip", "r") as file:
 
 for i in range(100):
     print(data[i])
-with open("t1_result.json", "w") as file:
+with open("t1_result.json", "w", encoding="utf-8") as file:
     file.write(json.dumps(data, indent=2, ensure_ascii=False))
     
 sorted_data = sorted(data, key=lambda x: x["Rating"])
 filtered_data = list(filter(lambda x: x["Type"] == 'Swiss', data))
 
-with open("t1_result_sorted.json", "w") as file:
+with open("t1_result_sorted.json", "w", encoding="utf-8") as file:
     file.write(json.dumps(sorted_data, indent=2, ensure_ascii=False))
 
-with open("t1_result_filtered.json", "w") as file:
+with open("t1_result_filtered.json", "w", encoding="utf-8") as file:
     file.write(json.dumps(filtered_data, indent=2, ensure_ascii=False))
 
 playtime_avg = playtime_sum / counter
 
-with open("t1_stats.json", "w") as file:
+with open("t1_stats.json", "w", encoding="utf-8") as file:
     file.write(json.dumps(
             {
                 "Sum": playtime_sum,
