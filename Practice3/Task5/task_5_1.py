@@ -74,21 +74,21 @@ for elem in data:
     
 
   
-with open("t5_1_result.json", "w") as file:
+with open("t5_1_result.json", "w", encoding="utf-8") as file:
     file.write(json.dumps(data, indent=2, ensure_ascii=False))
     
 sorted_data = sorted(data, key=lambda x: x["Year"])
 filtered_data = list(filter(lambda x: x["Mileage"] >= 100000, data))
 
-with open("t5_1_result_sorted.json", "w") as file:
+with open("t5_1_result_sorted.json", "w", encoding="utf-8") as file:
     file.write(json.dumps(sorted_data, indent=2, ensure_ascii=False))
 
-with open("t5_1_result_filtered.json", "w") as file:
+with open("t5_1_result_filtered.json", "w", encoding="utf-8") as file:
     file.write(json.dumps(filtered_data, indent=2, ensure_ascii=False))
 
 mileage_avg = mileage_sum / counter
 
-with open("t5_1_stats.json", "w") as file:
+with open("t5_1_stats.json", "w", encoding="utf-8") as file:
     file.write(json.dumps(
             {
                 "Sum": mileage_sum,
