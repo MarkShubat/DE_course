@@ -1,0 +1,1 @@
+{"world_rank": "uint16", "institution": "category", "country": "category", "national_rank": "uint8", "quality_of_education": "uint16", "alumni_employment": "uint16", "quality_of_faculty": "uint8", "publications": "uint16", "influence": "uint16", "citations": "uint16", "score": "float32"}
