@@ -69,21 +69,21 @@ for elem in data:
     e_type = elem["Engine type"]
     freq[e_type] = freq.get(e_type, 0) + 1    
     
-with open("t5_result.json", "w") as file:
+with open("t5_result.json", "w", encoding="utf-8") as file:
     file.write(json.dumps(data, indent=2, ensure_ascii=False))
     
 sorted_data = sorted(data, key=lambda x: x["Year"])
 filtered_data = list(filter(lambda x: x["Price"] >= 1000000, data))
 
-with open("t5_result_sorted.json", "w") as file:
+with open("t5_result_sorted.json", "w", encoding="utf-8") as file:
     file.write(json.dumps(sorted_data, indent=2, ensure_ascii=False))
 
-with open("t5_result_filtered.json", "w") as file:
+with open("t5_result_filtered.json", "w", encoding="utf-8") as file:
     file.write(json.dumps(filtered_data, indent=2, ensure_ascii=False))
 
 price_avg = price_sum / counter
 
-with open("t5_stats.json", "w") as file:
+with open("t5_stats.json", "w", encoding="utf-8") as file:
     file.write(json.dumps(
             {
                 "Sum": price_sum,
