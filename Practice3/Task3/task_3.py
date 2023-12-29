@@ -53,21 +53,21 @@ with zipfile.ZipFile("zip_var_16.zip", "r") as file:
             data.append(star)
 
 
-with open("t3_result.json", "w") as file:
+with open("t3_result.json", "w", encoding="utf-8") as file:
     file.write(json.dumps(data, indent=2, ensure_ascii=False))
     
 sorted_data = sorted(data, key=lambda x: x["Radius"])
 filtered_data = list(filter(lambda x: x["Age"] >= 2, data))
 
-with open("t3_result_sorted.json", "w") as file:
+with open("t3_result_sorted.json", "w", encoding="utf-8") as file:
     file.write(json.dumps(sorted_data, indent=2, ensure_ascii=False))
 
-with open("t3_result_filtered.json", "w") as file:
+with open("t3_result_filtered.json", "w", encoding="utf-8") as file:
     file.write(json.dumps(filtered_data, indent=2, ensure_ascii=False))
 
 age_avg = age_sum / counter
 
-with open("t3_stats.json", "w") as file:
+with open("t3_stats.json", "w", encoding="utf-8") as file:
     file.write(json.dumps(
             {
                 "Sum": age_sum,
